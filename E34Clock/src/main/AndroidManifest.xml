@@ -17,6 +17,16 @@
                 android:name="de.element34.e34clock.ClockSettingsActivity"
                 android:label="@string/app_name">
         </activity>
+        <receiver
+                android:name=".E34ClockWidget"
+                android:label="E34Clock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/e34clock_widgetprovider"/>
+        </receiver>
     </application>
 
 </manifest>
