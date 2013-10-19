@@ -2,8 +2,8 @@
 
     <CheckBoxPreference
             android:key="show_highlights"
-            android:title="Show highlights on the clock"
-            android:summary="@string/pref_show_highlights"
+            android:title="Show Highlights"
+            android:summary="Show highlighs summary"
             android:defaultValue="true"/>
     <Preference
             android:key="show_timesettings"
