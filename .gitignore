@@ -1,2 +1,4 @@
 *.class
-E34Clock/src/main/gen
+.idea/
+E34Clock/src/main/gen/
+build/
