@@ -4,5 +4,17 @@
     <string name="app_name">E34Clock</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="pref_sh_title">Show Highlights</string>
+    <string name="pref_sh_summary">Show highlights summary</string>
+    <string name="pref_time_title">Open Time Settings</string>
+    <string name="widget_label">E34ClockWidget</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="location_txt">Markt Schwaben</string>
 
 </resources>

@@ -1,33 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="240dp"
-             android:layout_height="240dp">
+    android:layout_width="@dimen/frame_layout_width"
+    android:layout_height="@dimen/frame_layout_height">
 
     <ImageView
-            android:layout_width="240dp"
-            android:layout_height="240dp"
-            android:id="@+id/imageView"
-            android:layout_gravity="left|top"
+        android:layout_width="@dimen/frame_layout_width"
+        android:layout_height="@dimen/frame_layout_height"
+        android:id="@+id/imageView"
+        android:layout_gravity="left|top"
             android:src="@drawable/rain_weather_now"/>
 
     <AnalogClock
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/analogClock"
-            android:layout_gravity="left|top"
+        android:layout_width="@dimen/analogclock_layout_width"
+        android:layout_height="@dimen/analogclock_layout_height"
+        android:id="@+id/analogClock"
+        android:layout_gravity="left|top"
             android:hand_hour="@drawable/hour_hand"
             android:hand_minute="@drawable/minute_hand"
             android:dial="@drawable/dial"/>
-
-    <TextClock
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textClock"
-            android:layout_gravity="center_horizontal|top"
-            android:typeface="sans"
-            android:textSize="20sp"
-            android:layout_marginLeft="80dp"
-            android:textStyle="bold"
-            android:timeZone="GMT+2"/>
 </FrameLayout>

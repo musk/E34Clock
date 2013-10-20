@@ -1,14 +1,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
-            android:key="show_highlights"
-            android:title="Show Highlights"
-            android:summary="Show highlighs summary"
-            android:defaultValue="true"/>
+        android:key="show_highlights"
+        android:title="@string/pref_sh_title"
+        android:summary="@string/pref_sh_summary"
+        android:defaultValue="true" />
     <Preference
-            android:key="show_timesettings"
-            android:title="Open Timesettings">
-        <intent android:action="android.settings.DATE_SETTINGS"/>
+        android:key="show_timesettings"
+        android:title="@string/pref_time_title">
+        <intent android:action="android.settings.DATE_SETTINGS" />
     </Preference>
 
 </PreferenceScreen>

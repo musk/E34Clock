@@ -1,0 +1,32 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="frame_layout_width">240dp</dimen>
+    <dimen name="frame_layout_height">240dp</dimen>
+    <dimen name="weather_layout_width">126.6dp</dimen>
+    <dimen name="weather_layout_height">121.8dp</dimen>
+    <dimen name="analogclock_layout_width">79.4dp</dimen>
+    <dimen name="analogclock_layout_height">79.4dp</dimen>
+    <dimen name="textclock_layout_margin_left">80dp</dimen>
+    <dimen name="textclock_text_size">20sp</dimen>
+    <dimen name="weather_preview_width">24.8dp</dimen>
+    <dimen name="weather_preview_height">22.3dp</dimen>
+    <dimen name="battery_width">25.4dp</dimen>
+    <dimen name="battery_height">27.4dp</dimen>
+    <dimen name="bell_top_margin">54.8dp</dimen>
+    <dimen name="weekday_txt_size">12sp</dimen>
+    <dimen name="weekday_height">15dp</dimen>
+    <dimen name="weekday_width">84.6dp</dimen>
+    <dimen name="weekday_padding_left">2dp</dimen>
+    <dimen name="weekday_margin_left">2dp</dimen>
+    <dimen name="date_txt_size">10sp</dimen>
+    <dimen name="date_width">84.6dp</dimen>
+    <dimen name="date_height">21dp</dimen>
+    <dimen name="date_padding_left">22dp</dimen>
+    <dimen name="date_padding_top">6dp</dimen>
+    <dimen name="location_txt_width">84dp</dimen>
+    <dimen name="location_txt_height">15dp</dimen>
+    <dimen name="location_txt_size">14sp</dimen>
+    <dimen name="location_txt_padding_top">6dp</dimen>
+</resources>

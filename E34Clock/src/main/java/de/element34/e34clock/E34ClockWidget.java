@@ -35,7 +35,7 @@ public class E34ClockWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Log.d(E34CLOCK.name(), "Updating widgets!");
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_layout);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
         appWidgetManager.updateAppWidget(appWidgetIds, views);
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
