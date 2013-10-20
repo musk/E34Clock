@@ -14,7 +14,10 @@
     <dimen name="weather_preview_height">22.3dp</dimen>
     <dimen name="battery_width">25.4dp</dimen>
     <dimen name="battery_height">27.4dp</dimen>
-    <dimen name="bell_top_margin">54.8dp</dimen>
+    <dimen name="alarm_txt_width">30dp</dimen>
+    <dimen name="alarm_width">25.4dp</dimen>
+    <dimen name="alarm_height">27.4dp</dimen>
+    <dimen name="alarm_top_margin">54.8dp</dimen>
     <dimen name="weekday_txt_size">12sp</dimen>
     <dimen name="weekday_height">15dp</dimen>
     <dimen name="weekday_width">84.6dp</dimen>
@@ -25,8 +28,12 @@
     <dimen name="date_height">21dp</dimen>
     <dimen name="date_padding_left">22dp</dimen>
     <dimen name="date_padding_top">6dp</dimen>
-    <dimen name="location_txt_width">84dp</dimen>
-    <dimen name="location_txt_height">15dp</dimen>
+    <dimen name="location_txt_width">100dp</dimen>
+    <dimen name="location_txt_height">30dp</dimen>
     <dimen name="location_txt_size">14sp</dimen>
-    <dimen name="location_txt_padding_top">6dp</dimen>
+    <dimen name="location_txt_padding_top">8dp</dimen>
+    <dimen name="battery_txt_padding_top">7dp</dimen>
+    <dimen name="battery_txt_padding_right">3dp</dimen>
+    <dimen name="battery_txt_size">8sp</dimen>
+    <dimen name="alarm_txt_size">8sp</dimen>
 </resources>

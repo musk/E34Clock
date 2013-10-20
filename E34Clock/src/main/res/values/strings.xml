@@ -16,5 +16,8 @@
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
     <string name="location_txt">Markt Schwaben</string>
+    <string name="date_txt">20.10.2013</string>
+    <string name="battery_txt">100%</string>
+    <string name="alarm_txt">18:45</string>
 
 </resources>
