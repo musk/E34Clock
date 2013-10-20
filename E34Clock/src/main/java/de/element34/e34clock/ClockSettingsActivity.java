@@ -1,20 +1,19 @@
 package de.element34.e34clock;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.util.Log;
 
-import static de.element34.e34clock.E34Clock.E34CLOCK;
+import static de.element34.e34clock.E34Clock.E34Clock;
 
 public class ClockSettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(E34CLOCK.name(), "Created ClockSetting activity!");
+        Log.d(E34Clock.name(), "Created ClockSetting activity!");
         // Display the fragment as the main content.
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new GeneralPreferenceFragment())
@@ -29,7 +28,7 @@ public class ClockSettingsActivity extends PreferenceActivity {
     public static class GeneralPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
-            Log.d(E34CLOCK.name(), "Creating general preference fragment!");
+            Log.d(E34Clock.name(), "Creating general preference fragment!");
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
         }

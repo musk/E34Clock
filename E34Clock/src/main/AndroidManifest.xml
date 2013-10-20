@@ -16,21 +16,15 @@
         <activity
             android:name=".ClockSettingsActivity"
             android:label="E34ClockSettings" />
-        <!--activity
-            android:name="de.element34.e34clock.MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-->
         <receiver
             android:name=".E34ClockWidget"
             android:label="@string/widget_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/e34clock_widgetprovider" />
