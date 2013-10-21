@@ -17,7 +17,7 @@
             android:name=".ClockSettingsActivity"
             android:label="E34ClockSettings" />
         <receiver
-            android:name=".E34ClockWidget"
+            android:name=".ClockWidget"
             android:label="@string/widget_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
