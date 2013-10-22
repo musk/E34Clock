@@ -3,21 +3,14 @@ package de.element34.e34clock;
 import android.content.Intent;
 import android.os.BatteryManager;
 import android.util.Log;
-import android.widget.RemoteViews;
 
 /**
- * Created by slanger on 21.10.13.
+ * (c) Copyright 2013 Stefan Langer
  */
-public class BatteryMonitor {
-    private static String TAG = "e34clock.BatteryMonitor";
+public class BatteryInfo {
+    private static final String TAG = "e34clock.BatteryInfo";
 
-    public RemoteViews updateView(RemoteViews views, Intent intent) {
-        views.setImageViewResource(R.id.battery, getBatteryImg(intent));
-        views.setTextViewText(R.id.battery_txt, getBatteryLevel(intent));
-        return views;
-    }
-
-    private CharSequence getBatteryLevel(Intent batteryStatus) {
+    public String getBatteryLevel(Intent batteryStatus) {
         String retVal = "---%";
         int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
         if (scale > 0) {
@@ -33,7 +26,6 @@ public class BatteryMonitor {
                 case BatteryManager.BATTERY_STATUS_FULL:
                     retVal = "Full";
                     break;
-                case BatteryManager.BATTERY_STATUS_UNKNOWN:
                 default:
                     Log.w(TAG, String.format("Unable to determine level of battery scale %d, level %d!", scale, level));
             }
@@ -42,7 +34,7 @@ public class BatteryMonitor {
         return retVal;
     }
 
-    private int getBatteryImg(Intent batteryStatus) {
+    public int getBatteryImg(Intent batteryStatus) {
         int extra = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
         Log.d(TAG, "Retrieved EXTRA_PLUGGED " + extra);
         switch (extra) {
@@ -51,7 +43,6 @@ public class BatteryMonitor {
             case BatteryManager.BATTERY_PLUGGED_USB:
                 Log.d(TAG, "Using plugged battery image!");
                 return R.drawable.battery_load;
-            case -1:
             default:
                 Log.d(TAG, "Using battery image!");
                 return R.drawable.battery;

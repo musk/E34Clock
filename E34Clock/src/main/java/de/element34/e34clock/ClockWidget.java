@@ -2,11 +2,16 @@ package de.element34.e34clock;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 import android.widget.RemoteViews;
+
+import static de.element34.e34clock.Constants.BATTERY_ACTION;
+import static de.element34.e34clock.Constants.BATTERY_IMG;
+import static de.element34.e34clock.Constants.BATTERY_LEVEL;
 
 /**
  * Copyrigfht 2013
@@ -14,53 +19,59 @@ import android.widget.RemoteViews;
  */
 public class ClockWidget extends AppWidgetProvider {
     private static String TAG = "e34clock.ClockWidget";
-    public final BatteryMonitor batteryMonitor = new BatteryMonitor();
-    private int[] widgetIds = new int[0];
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        if (Intent.ACTION_BATTERY_CHANGED.equals(intent.getAction())) {
-            handleBatteryChanged(intent, this);
-        } else if (Intent.ACTION_BATTERY_LOW.equals(intent.getAction())) {
-            handleBatteryLow(intent, this);
+        if (Constants.BATTERY_ACTION.equals(intent.getAction())) {
+            Log.d(TAG, "Receiving battery action intent " + intent);
+            final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
         }
-    }
-
-    private void handleBatteryLow(Intent intent, ClockWidget clockWidget) {
-    }
-
-    private void handleBatteryChanged(Intent intent, ClockWidget clockWidget) {
     }
 
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
         Log.d(TAG, "ClockWidget created!");
+        Intent service = new Intent(context, BatteryService.class);
+        context.startService(service);
     }
 
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
         Log.d(TAG, "ClockWidget completely removed!");
+        Intent service = new Intent(context, BatteryService.class);
+        context.stopService(service);
     }
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
         super.onDeleted(context, appWidgetIds);
         Log.d(TAG, "Deleting an instance of widget!");
-        this.widgetIds = appWidgetIds;
     }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Log.d(TAG, "Updating widgets!");
-        this.widgetIds = appWidgetIds;
-        Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
-        views = batteryMonitor.updateView(views, batteryStatus);
-        appWidgetManager.updateAppWidget(appWidgetIds, views);
+        final Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        Intent bIntent = new Intent(BATTERY_ACTION);
+        bIntent.putExtra(BATTERY_LEVEL, info.getBatteryLevel(batteryStatus));
+        bIntent.putExtra(BATTERY_IMG, info.getBatteryImg(batteryStatus));
+        updateViews(bIntent, context, appWidgetManager, appWidgetIds);
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
+    private void updateViews(Intent intent, Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        final String level = intent.getStringExtra(BATTERY_LEVEL);
+        final int imgId = intent.getIntExtra(BATTERY_IMG, R.drawable.battery);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
+        views.setImageViewResource(R.id.battery, imgId);
+        views.setTextViewText(R.id.battery_txt, level);
+        Log.d(TAG, "Updating remote views with level=" + level + ", imgId=" + imgId);
+        appWidgetManager.updateAppWidget(appWidgetIds, views);
+    }
+
+    private BatteryInfo info = new BatteryInfo();
 }

@@ -21,14 +21,15 @@
             android:label="@string/widget_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="de.element34.e34clock.action.BATTERY" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/e34clock_widgetprovider" />
         </receiver>
+
+        <service android:name=".BatteryService" />
     </application>
 
 </manifest>
