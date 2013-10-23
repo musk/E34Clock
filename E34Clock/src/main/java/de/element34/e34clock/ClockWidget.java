@@ -42,11 +42,19 @@ public class ClockWidget extends AppWidgetProvider {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.d(TAG, "Received intent " + intent);
         super.onReceive(context, intent);
-        if (Constants.BATTERY_ACTION.equals(intent.getAction())) {
-            Log.d(TAG, "Receiving battery action intent " + intent);
+        String intentAction = intent.getAction();
+        if (intentAction.equals(Intent.ACTION_DATE_CHANGED) ||
+                intentAction.equals(Intent.ACTION_TIMEZONE_CHANGED) ||
+                intentAction.equals(Intent.ACTION_TIME_CHANGED) ||
+                intentAction.equals(Constants.BATTERY_ACTION)) {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
+        } else if (intentAction.equals(Intent.ACTION_SCREEN_OFF)) {
+            context.stopService(new Intent(context, BatteryService.class));
+        } else if (intentAction.equals(Intent.ACTION_SCREEN_ON)) {
+            context.startService(new Intent(context, BatteryService.class));
         }
     }
 
