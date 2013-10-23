@@ -41,7 +41,7 @@
     <dimen name="weekday_margin_left">2dp</dimen>
     <dimen name="date_txt_size">10sp</dimen>
     <dimen name="date_width">84.6dp</dimen>
-    <dimen name="date_height">21dp</dimen>
+    <dimen name="date_height">105dp</dimen>
     <dimen name="date_padding_left">22dp</dimen>
     <dimen name="date_padding_top">6dp</dimen>
     <dimen name="location_txt_width">100dp</dimen>

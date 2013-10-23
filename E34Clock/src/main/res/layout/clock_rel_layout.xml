@@ -233,7 +233,6 @@
         android:layout_height="@dimen/date_height"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="@dimen/weekday_margin_left"
-        android:layout_marginTop="45dp"
         android:layout_toRightOf="@+id/weather"
         android:alpha="1.0"
         android:paddingLeft="@dimen/date_padding_left"
