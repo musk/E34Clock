@@ -45,15 +45,16 @@ public class ClockWidget extends AppWidgetProvider {
         Log.d(TAG, "Received intent " + intent);
         super.onReceive(context, intent);
         String intentAction = intent.getAction();
-        if (intentAction.equals(Intent.ACTION_DATE_CHANGED) ||
-                intentAction.equals(Intent.ACTION_TIMEZONE_CHANGED) ||
-                intentAction.equals(Intent.ACTION_TIME_CHANGED) ||
-                intentAction.equals(Constants.BATTERY_ACTION)) {
+        if (Intent.ACTION_DATE_CHANGED.equals(intentAction) ||
+                Intent.ACTION_TIMEZONE_CHANGED.equals(intentAction) ||
+                Intent.ACTION_TIME_CHANGED.equals(intentAction) ||
+                "android.intent.action.ALARM_CHANGED".equals(intentAction) ||
+                Constants.BATTERY_ACTION.equals(intentAction)) {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
-        } else if (intentAction.equals(Intent.ACTION_SCREEN_OFF)) {
+        } else if (Intent.ACTION_SCREEN_OFF.equals(intentAction)) {
             context.stopService(new Intent(context, BatteryService.class));
-        } else if (intentAction.equals(Intent.ACTION_SCREEN_ON)) {
+        } else if (Intent.ACTION_SCREEN_ON.equals(intentAction)) {
             context.startService(new Intent(context, BatteryService.class));
         }
     }

@@ -35,7 +35,10 @@ public class AlarmInfo {
             Log.d(TAG, "Found time " + timeStr);
             if (matcher.find(1)) {
                 String amPm = matcher.group(2);
-                alarmBuilder.append(amPm);
+                if (amPm != null) {
+                    alarmBuilder.append(" ");
+                    alarmBuilder.append(amPm);
+                }
                 Log.d(TAG, "Found time extension " + amPm);
             }
             nextAlarm = alarmBuilder.toString();
