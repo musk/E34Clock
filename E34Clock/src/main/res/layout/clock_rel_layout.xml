@@ -138,10 +138,23 @@
 
     <!-- Weekday display -->
     <TextView
-        android:id="@+id/monday"
+        android:id="@+id/sunday"
         android:layout_width="@dimen/weekday_width"
         android:layout_height="@dimen/weekday_height"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:alpha="0.39"
+        android:paddingLeft="@dimen/weekday_padding_left"
+        android:text="@string/sunday"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/weekday_txt_size" />
+
+    <TextView
+        android:id="@+id/monday"
+        android:layout_width="@dimen/weekday_width"
+        android:layout_height="@dimen/weekday_height"
+        android:layout_below="@+id/sunday"
         android:layout_marginLeft="@dimen/weekday_margin_left"
         android:layout_toRightOf="@+id/weather"
         android:alpha="0.39"
@@ -212,19 +225,6 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/saturday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
-
-    <TextView
-        android:id="@+id/sunday"
-        android:layout_width="@dimen/weekday_width"
-        android:layout_height="@dimen/weekday_height"
-        android:layout_below="@+id/saturday"
-        android:layout_marginLeft="@dimen/weekday_margin_left"
-        android:layout_toRightOf="@+id/weather"
-        android:alpha="0.39"
-        android:paddingLeft="@dimen/weekday_padding_left"
-        android:text="@string/sunday"
         android:textColor="#ffffff"
         android:textSize="@dimen/weekday_txt_size" />
 
