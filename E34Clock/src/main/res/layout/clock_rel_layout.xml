@@ -71,7 +71,7 @@
         android:layout_height="@dimen/weather_layout_height"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/battery"
-        android:src="@drawable/rain_weather_now" />
+        android:src="@drawable/weather_now_sun_cloud" />
 
     <AnalogClock
         android:id="@+id/analogClock"

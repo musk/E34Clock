@@ -15,7 +15,7 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="ClockWidget.svg"
    inkscape:export-filename="D:\project\E34ClockProject\E34Clock\src\main\res\drawable-mdpi\rain_weather_now.png"
    inkscape:export-xdpi="96"
@@ -1672,15 +1672,15 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.89563513"
-     inkscape:cx="1765.1768"
-     inkscape:cy="706.13305"
+     inkscape:cx="1626.1693"
+     inkscape:cy="942.00239"
      inkscape:document-units="px"
-     inkscape:current-layer="g8018"
+     inkscape:current-layer="g7767"
      showgrid="false"
-     inkscape:window-width="1526"
-     inkscape:window-height="878"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1868"
+     inkscape:window-height="1056"
+     inkscape:window-x="52"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      showguides="false"
      inkscape:guide-bbox="true"
@@ -1773,7 +1773,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="Background"
      id="g18186"
      inkscape:groupmode="layer"
@@ -8378,7 +8378,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Alarm Bell"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        sodipodi:nodetypes="scccssscccs"
@@ -8391,7 +8391,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Alarm Text"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <text
        xml:space="preserve"
@@ -8452,7 +8452,7 @@
     </g>
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="Battery Load"
      id="g18134"
      inkscape:groupmode="layer"
@@ -8477,7 +8477,7 @@
            sodipodi:cy="33.85495"
            sodipodi:rx="85.34977"
            sodipodi:ry="89.143089"
-           d="m 2841.1989,33.85495 c 0,49.232369 -38.2124,89.14309 -85.3498,89.14309 -47.1374,0 -85.3497,-39.910721 -85.3497,-89.14309 0,-49.232369 38.2123,-89.143089 85.3497,-89.143089 47.1374,0 85.3498,39.91072 85.3498,89.143089 z"
+           d="m 2841.1989,33.85495 a 85.34977,89.143089 0 1 1 -170.6995,0 85.34977,89.143089 0 1 1 170.6995,0 z"
            transform="matrix(0.05714542,0,0,0.01882935,1268.5756,190.319)" />
         <path
            id="path18142"
@@ -8536,7 +8536,7 @@
          sodipodi:cy="33.85495"
          sodipodi:rx="85.34977"
          sodipodi:ry="89.143089"
-         d="m 2841.1989,33.85495 c 0,49.232369 -38.2124,89.14309 -85.3498,89.14309 -47.1374,0 -85.3497,-39.910721 -85.3497,-89.14309 0,-49.232369 38.2123,-89.143089 85.3497,-89.143089 47.1374,0 85.3498,39.91072 85.3498,89.143089 z"
+         d="m 2841.1989,33.85495 a 85.34977,89.143089 0 1 1 -170.6995,0 85.34977,89.143089 0 1 1 170.6995,0 z"
          transform="matrix(0.19643434,0,0,0.07398948,883.72745,190.54693)" />
       <rect
          rx="2.5624502"
@@ -8550,7 +8550,7 @@
     </g>
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="Battery Text"
      id="g18168"
      inkscape:groupmode="layer"
@@ -8571,7 +8571,7 @@
      inkscape:groupmode="layer"
      id="layer21"
      inkscape:label="WLAN"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <g
        id="g7901"
@@ -8703,7 +8703,7 @@
      inkscape:groupmode="layer"
      id="g18204"
      inkscape:label="Date Text"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <text
        sodipodi:linespacing="125%"
@@ -8804,7 +8804,7 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="PreviewIcons"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <g
        id="g5921-6-5"
@@ -11906,7 +11906,7 @@
      inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="Sun"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
@@ -12025,7 +12025,7 @@
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="Cloud"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -12117,7 +12117,7 @@
      inkscape:groupmode="layer"
      id="layer14"
      inkscape:label="Rain"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:7.73381853;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -12194,7 +12194,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Snow"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <rect
        inkscape:export-ydpi="90"
@@ -12248,7 +12248,7 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="Dials Hours"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <g
        style="display:inline"
@@ -12268,7 +12268,7 @@
          id="g4616">
         <path
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)"
-           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
            sodipodi:ry="92"
            sodipodi:rx="92"
            sodipodi:cy="1262.3622"
@@ -12319,7 +12319,7 @@
          id="g4640">
         <path
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)"
-           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
            sodipodi:ry="92"
            sodipodi:rx="92"
            sodipodi:cy="1262.3622"
@@ -12371,12 +12371,12 @@
     <g
        id="g4792"
        transform="matrix(1.2288104,0,0,1.2288104,-338.64802,-31.858808)"
-       inkscape:export-filename="D:\project\E34ClockProject\E34Clock\src\main\res\drawable-mdpi\hour_hand.png"
+       inkscape:export-filename="/home/slanger/projects/E34Clock/E34Clock/src/main/res/drawable-mdpi/hour_hand.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <path
          transform="matrix(0.39130435,0,0,0.39130435,754.14066,-194.29922)"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          sodipodi:ry="92"
          sodipodi:rx="92"
          sodipodi:cy="1262.3622"
@@ -12420,11 +12420,11 @@
          sodipodi:cy="1262.3622"
          sodipodi:rx="92"
          sodipodi:ry="92"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          transform="matrix(0.35848198,0,0,0.35848198,826.48099,-152.86558)" />
       <path
          transform="matrix(0.42213581,0,0,0.42213581,686.18796,-233.21976)"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          sodipodi:ry="92"
          sodipodi:rx="92"
          sodipodi:cy="1262.3622"
@@ -12464,7 +12464,7 @@
            sodipodi:cy="1262.3622"
            sodipodi:rx="92"
            sodipodi:ry="92"
-           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)" />
         <rect
            style="opacity:0.5;fill:url(#linearGradient4628);fill-opacity:1;stroke:none;filter:url(#filter5849-2-1-5-7)"
@@ -12515,7 +12515,7 @@
            sodipodi:cy="1262.3622"
            sodipodi:rx="92"
            sodipodi:ry="92"
-           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)" />
         <rect
            style="opacity:0.5;fill:url(#linearGradient4652);fill-opacity:1;stroke:none;filter:url(#filter5849-2-1-5-7)"
@@ -12627,11 +12627,11 @@
          sodipodi:cy="1262.3622"
          sodipodi:rx="92"
          sodipodi:ry="92"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          transform="matrix(1.1613842,0,0,1.1613842,-942.16025,-1159.9985)" />
       <path
          transform="matrix(1.3720318,0,0,1.3720318,-1406.4276,-1425.9123)"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          sodipodi:ry="92"
          sodipodi:rx="92"
          sodipodi:cy="1262.3622"
@@ -12641,7 +12641,7 @@
          sodipodi:type="arc" />
       <path
          transform="matrix(1.4321842,0,0,1.4321842,-1539.0034,-1501.8462)"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          sodipodi:ry="92"
          sodipodi:rx="92"
          sodipodi:cy="1262.3622"
@@ -12657,7 +12657,7 @@
          sodipodi:cy="1262.3622"
          sodipodi:rx="92"
          sodipodi:ry="92"
-         d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+         d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
          transform="matrix(1.0988489,0,0,1.0988489,-804.33252,-1081.0564)" />
     </g>
   </g>
@@ -12665,13 +12665,7 @@
      inkscape:groupmode="layer"
      id="g7767"
      inkscape:label="Dials Minutes Alternate"
-     style="display:inline"
-     sodipodi:insensitive="true">
-    <path
-       style="fill:#ffffff;fill-opacity:0.51307188;stroke:#f0f0f0;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 1648.1562,177.21875 c -53.7458,-0.0627 -106.2424,27.08471 -136.25,76.34375 -45.7256,75.0614 -21.9675,173.02425 53.0938,218.75 75.0614,45.72574 172.9929,21.90514 218.7188,-53.15625 45.7257,-75.06139 21.9364,-172.96175 -53.125,-218.6875 -25.8024,-15.71823 -54.285,-23.21717 -82.4376,-23.25 z m -0.031,11.09375 c 26.1865,0.0305 52.6871,7.03571 76.6875,21.65625 69.8195,42.53249 91.9388,133.58678 49.4063,203.40625 -42.5327,69.81947 -133.618,91.96998 -203.4376,49.4375 -69.8192,-42.53248 -91.9075,-133.64927 -49.375,-203.46875 27.912,-45.81902 76.7263,-71.08956 126.7188,-71.03125 z"
-       id="path7805"
-       inkscape:connector-curvature="0" />
+     style="display:inline">
     <g
        style="display:inline"
        inkscape:export-ydpi="90"
@@ -12690,7 +12684,7 @@
          id="g7775">
         <path
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)"
-           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
            sodipodi:ry="92"
            sodipodi:rx="92"
            sodipodi:cy="1262.3622"
@@ -12741,7 +12735,7 @@
          id="g7791">
         <path
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)"
-           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
+           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
            sodipodi:ry="92"
            sodipodi:rx="92"
            sodipodi:cy="1262.3622"
@@ -12790,47 +12784,58 @@
          style="fill:none;stroke:#0000ff;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          sodipodi:type="spiral" />
     </g>
-    <path
-       sodipodi:type="star"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
-       id="path7847"
-       sodipodi:sides="3"
-       sodipodi:cx="1436.3293"
-       sodipodi:cy="176.4626"
-       sodipodi:r1="6.7138286"
-       sodipodi:r2="3.3569143"
-       sodipodi:arg1="1.5707963"
-       sodipodi:arg2="2.6179939"
-       inkscape:flatsided="true"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="m 1436.3293,183.17643 -5.8143,-10.07074 11.6287,0 z"
-       inkscape:transform-center-y="4.4767985"
-       transform="matrix(2.6672147,0,0,2.6672147,-2183.1821,-282.91319)"
-       inkscape:transform-center-x="1.0952331e-005" />
-    <path
-       style="fill:#a9a9a9;fill-opacity:1;stroke:none"
-       d="m 1659.8132,178.83477 3.4432,0.0475 -15.4559,26.90468 -0.016,-6.11367 z"
-       id="path7855"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       transform="matrix(2.0670172,0,0,2.0670172,-1321.1008,-179.00078)"
-       inkscape:transform-center-y="3.4693909"
-       d="m 1436.3293,183.17643 -5.8143,-10.07074 11.6287,0 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="true"
-       sodipodi:arg2="2.6179939"
-       sodipodi:arg1="1.5707963"
-       sodipodi:r2="3.3569143"
-       sodipodi:r1="6.7138286"
-       sodipodi:cy="176.4626"
-       sodipodi:cx="1436.3293"
-       sodipodi:sides="3"
-       id="path7851"
-       style="fill:#d6d6d6;fill-opacity:1;fill-rule:evenodd;stroke:none"
-       sodipodi:type="star" />
+    <g
+       id="g4884"
+       inkscape:export-filename="/home/slanger/projects/E34Clock/E34Clock/src/main/res/drawable-mdpi/minute_hand.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7805"
+         d="m 1648.1562,177.21875 c -53.7458,-0.0627 -106.2424,27.08471 -136.25,76.34375 -45.7256,75.0614 -21.9675,173.02425 53.0938,218.75 75.0614,45.72574 172.9929,21.90514 218.7188,-53.15625 45.7257,-75.06139 21.9364,-172.96175 -53.125,-218.6875 -25.8024,-15.71823 -54.285,-23.21717 -82.4376,-23.25 z m -0.031,11.09375 c 26.1865,0.0305 52.6871,7.03571 76.6875,21.65625 69.8195,42.53249 91.9388,133.58678 49.4063,203.40625 -42.5327,69.81947 -133.618,91.96998 -203.4376,49.4375 -69.8192,-42.53248 -91.9075,-133.64927 -49.375,-203.46875 27.912,-45.81902 76.7263,-71.08956 126.7188,-71.03125 z"
+         style="fill:#ffffff;fill-opacity:0.51307188;stroke:#f0f0f0;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:transform-center-x="1.0952331e-05"
+         transform="matrix(2.6672147,0,0,2.6672147,-2183.1821,-282.91319)"
+         inkscape:transform-center-y="4.4767985"
+         d="m 1436.3293,183.17643 -5.8143,-10.07074 11.6287,0 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="true"
+         sodipodi:arg2="2.6179939"
+         sodipodi:arg1="1.5707963"
+         sodipodi:r2="3.3569143"
+         sodipodi:r1="6.7138286"
+         sodipodi:cy="176.4626"
+         sodipodi:cx="1436.3293"
+         sodipodi:sides="3"
+         id="path7847"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         sodipodi:type="star" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path7855"
+         d="m 1659.8132,178.83477 3.4432,0.0475 -15.4559,26.90468 -0.016,-6.11367 z"
+         style="fill:#a9a9a9;fill-opacity:1;stroke:none" />
+      <path
+         sodipodi:type="star"
+         style="fill:#d6d6d6;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         id="path7851"
+         sodipodi:sides="3"
+         sodipodi:cx="1436.3293"
+         sodipodi:cy="176.4626"
+         sodipodi:r1="6.7138286"
+         sodipodi:r2="3.3569143"
+         sodipodi:arg1="1.5707963"
+         sodipodi:arg2="2.6179939"
+         inkscape:flatsided="true"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 1436.3293,183.17643 -5.8143,-10.07074 11.6287,0 z"
+         inkscape:transform-center-y="3.4693909"
+         transform="matrix(2.0670172,0,0,2.0670172,-1321.1008,-179.00078)" />
+    </g>
   </g>
   <g
      style="display:none"
@@ -13123,7 +13128,7 @@
      inkscape:groupmode="layer"
      id="layer18"
      inkscape:label="Highlight"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <rect
        y="157.46791"
@@ -13147,7 +13152,7 @@
      inkscape:groupmode="layer"
      id="layer19"
      inkscape:label="Highlight2"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter8471)"
