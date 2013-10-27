@@ -38,8 +38,6 @@ public class ClockWidget extends AppWidgetProvider {
     private static String TAG = "e34clock.ClockWidget";
     private BatteryInfo batteryInfo = new BatteryInfo();
     private AlarmInfo alarmInfo = new AlarmInfo();
-    private String batteryLevel;
-    private int batteryImgId;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -53,10 +51,8 @@ public class ClockWidget extends AppWidgetProvider {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
         } else if (Constants.BATTERY_ACTION.equals(intentAction)) {
-            batteryLevel = intent.getStringExtra(BATTERY_LEVEL);
-            batteryImgId = intent.getIntExtra(BATTERY_IMG, R.drawable.battery);
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
+            updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
         } else if (Intent.ACTION_SCREEN_OFF.equals(intentAction)) {
             context.stopService(new Intent(context, BatteryService.class));
         } else if (Intent.ACTION_SCREEN_ON.equals(intentAction)) {
@@ -88,19 +84,22 @@ public class ClockWidget extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        Log.d(TAG, "Updating widgets!");
-        if (batteryLevel == null) {
-            final Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-            batteryLevel = batteryInfo.getBatteryLevel(batteryStatus);
-            batteryImgId = batteryInfo.getBatteryImg(batteryStatus);
-        }
+        Log.d(TAG, "Updating widget!");
         updateViews(context, appWidgetManager, appWidgetIds);
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     private void updateViews(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        final Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        Intent intent = new Intent(Constants.BATTERY_ACTION);
+        intent.putExtra(BATTERY_LEVEL, batteryInfo.getBatteryLevel(batteryStatus));
+        intent.putExtra(BATTERY_IMG, batteryInfo.getBatteryImg(batteryStatus));
+        updateViews(intent, context, appWidgetManager, appWidgetIds);
+    }
+
+    private void updateViews(Intent intent, Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
-        setBatteryStatus(views);
+        setBatteryStatus(views, intent);
         setAlarmText(context, views);
         setDate(context, views);
         appWidgetManager.updateAppWidget(appWidgetIds, views);
@@ -110,10 +109,9 @@ public class ClockWidget extends AppWidgetProvider {
         final Time dateTime = new Time();
         dateTime.setToNow();
         final Resources resources = context.getResources();
-//        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
         int leftPadding = resources.getDimensionPixelSize(R.dimen.date_padding_left);
         int weekdayPx = resources.getDimensionPixelSize(R.dimen.weekday_height);
-        int paddingDate = resources.getDimensionPixelSize(R.dimen.date_padding_top);//(int)Math.ceil(weekdayPx/2);
+        int paddingDate = resources.getDimensionPixelSize(R.dimen.date_padding_top);
         int topPadding = dateTime.weekDay * weekdayPx + paddingDate;
         String date = dateTime.format("%d.%m.%Y");
         Log.d(TAG, "Setting date to " + date + " for weekday " + dateTime.weekDay + ", left=" + leftPadding + ", top=" + topPadding);
@@ -138,7 +136,9 @@ public class ClockWidget extends AppWidgetProvider {
         views.setViewPadding(R.id.date, leftPadding, topPadding, 0, 0);
     }
 
-    private void setBatteryStatus(RemoteViews views) {
+    private void setBatteryStatus(RemoteViews views, Intent intent) {
+        String batteryLevel = intent.getStringExtra(BATTERY_LEVEL);
+        int batteryImgId = intent.getIntExtra(BATTERY_IMG, R.drawable.battery);
         Log.d(TAG, "Updating battery status: level=" + batteryLevel + ", image id=" + batteryImgId);
         views.setImageViewResource(R.id.battery, batteryImgId);
         views.setTextViewText(R.id.battery_txt, batteryLevel);
