@@ -20,49 +20,64 @@
     android:layout_width="@dimen/frame_layout_width"
     android:layout_height="@dimen/frame_layout_height">
 
+    <!-- network indicator -->
+    <ImageView
+        android:id="@+id/network"
+        android:layout_width="@dimen/battery_width"
+        android:layout_height="@dimen/battery_height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/network_wlan" />
+
     <!-- battery indicator -->
     <ImageView
         android:id="@+id/battery"
         android:layout_width="@dimen/battery_width"
         android:layout_height="@dimen/battery_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/network"
+        android:layout_below="@+id/network"
         android:src="@drawable/battery_load" />
 
     <TextView
         android:id="@+id/battery_txt"
-        android:layout_width="@dimen/battery_height"
-        android:layout_height="@dimen/battery_width"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="@dimen/battery_width"
+        android:layout_height="@dimen/battery_height"
+        android:layout_alignLeft="@+id/network"
+        android:layout_below="@+id/network"
         android:gravity="right"
         android:paddingRight="@dimen/battery_txt_padding_right"
         android:paddingTop="@dimen/battery_txt_padding_top"
         android:text="@string/battery_txt"
-        android:textSize="@dimen/battery_txt_size" />
+        android:textSize="@dimen/battery_txt_size"
+        android:textColor="@color/battery"
+        android:alpha="1.0"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <!-- Alarm indicator -->
     <ImageView
         android:id="@+id/alarm"
-        android:layout_width="@dimen/alarm_width"
-        android:layout_height="@dimen/alarm_height"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/alarm_top_margin"
+        android:layout_width="@dimen/battery_width"
+        android:layout_height="@dimen/battery_height"
+        android:layout_alignLeft="@+id/battery"
+        android:layout_below="@+id/battery"
         android:gravity="center"
         android:src="@drawable/alarm_bell" />
-    <!--android:layout_alignParentLeft="true"-->
+
     <TextView
         android:id="@+id/alarm_txt"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/alarm_height"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="@dimen/alarm_top_margin"
+        android:layout_alignLeft="@+id/battery"
+        android:layout_below="@+id/battery"
         android:gravity="center"
+        android:alpha="1.0"
         android:text="@string/alarm_txt"
         android:textSize="@dimen/alarm_txt_size"
-        android:layout_alignParentEnd="false"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/alarm"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <!-- Today weather -->
     <ImageView
@@ -78,10 +93,11 @@
         android:layout_width="@dimen/analogclock_layout_width"
         android:layout_height="@dimen/analogclock_layout_height"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/battery"
+        android:layout_toRightOf="@+id/network"
         android:dial="@drawable/dial"
         android:hand_hour="@drawable/hour_hand"
-        android:hand_minute="@drawable/minute_hand" />
+        android:hand_minute="@drawable/minute_hand"
+        android:paddingLeft="1dp" />
 
     <!-- Weather preview icons bottom -->
     <TextView
@@ -147,8 +163,10 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/sunday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/monday"
@@ -160,8 +178,10 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/monday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/tuesday"
@@ -173,8 +193,10 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/tuesday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/wednesday"
@@ -186,8 +208,10 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/wednesday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/thursday"
@@ -199,8 +223,10 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/thursday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/friday"
@@ -212,21 +238,25 @@
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/friday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/saturday"
         android:layout_width="@dimen/weekday_width"
         android:layout_height="@dimen/weekday_height"
-        android:layout_below="@+id/friday"
         android:layout_marginLeft="@dimen/weekday_margin_left"
         android:layout_toRightOf="@+id/weather"
         android:alpha="0.39"
         android:paddingLeft="@dimen/weekday_padding_left"
         android:text="@string/saturday"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/weekday_txt_size"
+        android:layout_below="@+id/friday"
+        android:textStyle="normal"
+        android:typeface="normal" />
 
     <!-- Date on current weekday -->
     <TextView
@@ -240,6 +270,8 @@
         android:paddingLeft="@dimen/date_padding_left"
         android:paddingTop="@dimen/date_padding_top"
         android:text="@string/date_txt"
-        android:textColor="#ffffff"
-        android:textSize="@dimen/weekday_txt_size" />
+        android:textColor="@color/date"
+        android:textSize="@dimen/weekday_txt_size"
+        android:textStyle="normal"
+        android:typeface="normal" />
 </RelativeLayout>

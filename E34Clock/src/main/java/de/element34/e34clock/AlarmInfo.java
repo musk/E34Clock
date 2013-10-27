@@ -16,37 +16,34 @@
 
 package de.element34.e34clock;
 
-import android.util.Log;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class AlarmInfo {
-    private static final Pattern pattern = Pattern.compile("([0-9]?[0-9]:[0-9][0-9]):?[0-9]?[0-9]? ?(AM|PM)?");
+    //    private static final Pattern pattern = Pattern.compile("([[:alpha:]]+).*([0-9]?[0-9]:[0-9][0-9]):?[0-9]?[0-9]? ?(AM|PM)?");
     private static final String TAG = "e34clock.AlarmInfo";
 
     public String extractAlarmText(String sysAlarm) {
-        Matcher matcher = pattern.matcher(sysAlarm);
-        String nextAlarm;
-        if (matcher.find()) {
-            StringBuilder alarmBuilder = new StringBuilder(20);
-            String timeStr = matcher.group(1);
-            alarmBuilder.append(timeStr);
-            Log.d(TAG, "Found time " + timeStr);
-            if (matcher.find(1)) {
-                String amPm = matcher.group(2);
-                if (amPm != null) {
-                    alarmBuilder.append(" ");
-                    alarmBuilder.append(amPm);
-                }
-                Log.d(TAG, "Found time extension " + amPm);
-            }
-            nextAlarm = alarmBuilder.toString();
-        } else {
-            nextAlarm = sysAlarm;
-            Log.d(TAG, "Pattern " + pattern + " did not match!");
-        }
-        Log.d(TAG, "Extracted text " + nextAlarm + " from " + sysAlarm);
-        return nextAlarm;
+//        Matcher matcher = pattern.matcher(sysAlarm);
+//        String nextAlarm;
+//        if (matcher.find()) {
+//            String day = matcher.group(1);
+//            StringBuilder alarmBuilder = new StringBuilder(20);
+//            String timeStr = matcher.group(1);
+//            alarmBuilder.append(timeStr);
+//            Log.d(TAG, "Found time " + timeStr);
+//            if (matcher.find(1)) {
+//                String amPm = matcher.group(2);
+//                if (amPm != null) {
+//                    alarmBuilder.append(" ");
+//                    alarmBuilder.append(amPm);
+//                }
+//                Log.d(TAG, "Found time extension " + amPm);
+//            }
+//            nextAlarm = alarmBuilder.toString();
+//        } else {
+//            nextAlarm = sysAlarm;
+//            Log.d(TAG, "Pattern " + pattern + " did not match!");
+//        }
+//        Log.d(TAG, "Extracted text " + nextAlarm + " from " + sysAlarm);
+//        return nextAlarm;
+        return sysAlarm;
     }
 }

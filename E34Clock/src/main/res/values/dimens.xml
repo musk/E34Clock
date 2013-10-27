@@ -43,7 +43,7 @@
     <dimen name="weekday_margin_left">2dp</dimen>
     <dimen name="date_txt_size">10sp</dimen>
     <dimen name="date_width">86.612dp</dimen>
-    <dimen name="date_height">105dp</dimen>
+    <dimen name="date_height">111dp</dimen>
     <dimen name="date_padding_left">22dp</dimen>
     <dimen name="date_padding_top">6dp</dimen>
     <dimen name="location_txt_width">100dp</dimen>
@@ -53,5 +53,5 @@
     <dimen name="battery_txt_padding_top">7dp</dimen>
     <dimen name="battery_txt_padding_right">3dp</dimen>
     <dimen name="battery_txt_size">10sp</dimen>
-    <dimen name="alarm_txt_size">10sp</dimen>
+    <dimen name="alarm_txt_size">8sp</dimen>
 </resources>
