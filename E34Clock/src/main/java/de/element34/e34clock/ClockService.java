@@ -24,8 +24,8 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
-public class BatteryService extends Service {
-    private static final String TAG = "e34clock.BatteryService";
+public class ClockService extends Service {
+    private static final String TAG = "e34clock.ClockService";
     private BroadcastReceiver batteryReceiver;
 
     @Override
@@ -39,11 +39,22 @@ public class BatteryService extends Service {
         batteryReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                broadcastBatteryStatus(intent);
+                Log.d(TAG, "Received intent " + intent);
+                String intentAction = intent.getAction();
+                if (Intent.ACTION_BATTERY_CHANGED.equals(intentAction)) {
+                    broadcastBatteryStatus(intent);
+                }
+                Intent batteryChanged = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                broadcastBatteryStatus(batteryChanged);
             }
         };
 
-        Intent batteryChanged = registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        final IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        intentFilter.addAction(Intent.ACTION_DATE_CHANGED);
+        intentFilter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
+        intentFilter.addAction(Intent.ACTION_TIME_CHANGED);
+        intentFilter.addAction("android.intent.action.ALARM_CHANGED");
+        Intent batteryChanged = registerReceiver(batteryReceiver, intentFilter);
         broadcastBatteryStatus(batteryChanged);
     }
 
@@ -54,7 +65,7 @@ public class BatteryService extends Service {
     }
 
     private void broadcastBatteryStatus(Intent batteryChanged) {
-        Intent batteryIntent = new Intent(Constants.BATTERY_ACTION);
+        Intent batteryIntent = new Intent(Constants.ACTION_CLOCK_CHANGED);
         batteryIntent.putExtra(Constants.BATTERY_LEVEL, info.getBatteryLevel(batteryChanged));
         batteryIntent.putExtra(Constants.BATTERY_IMG, info.getBatteryImg(batteryChanged));
         Log.d(TAG, "Broadcasting intent " + batteryIntent);

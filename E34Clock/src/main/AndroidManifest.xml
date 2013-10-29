@@ -41,11 +41,7 @@
             android:label="@string/widget_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="de.element34.e34clock.action.BATTERY" />
-                <action android:name="android.intent.action.DATE_CHANGED" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-                <action android:name="android.intent.action.ALARM_CHANGED" />
+                <action android:name="de.element34.e34clock.action.ACTION_CLOCK_CHANGED" />
                 <action android:name="android.intent.action.SCREEN_OFF" />
                 <action android:name="android.intent.action.SCREEN_ON" />
             </intent-filter>
@@ -55,7 +51,7 @@
                 android:resource="@xml/e34clock_widgetprovider" />
         </receiver>
 
-        <service android:name=".BatteryService" />
+        <service android:name=".ClockService" />
     </application>
 
 </manifest>

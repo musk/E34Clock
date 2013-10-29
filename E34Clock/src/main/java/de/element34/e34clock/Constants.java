@@ -17,7 +17,7 @@
 package de.element34.e34clock;
 
 public class Constants {
-    public static final String BATTERY_ACTION = "de.element34.e34clock.action.BATTERY";
+    public static final String ACTION_CLOCK_CHANGED = "de.element34.e34clock.action.ACTION_CLOCK_CHANGED";
     public static final String BATTERY_LEVEL = "BATTERY_LEVEL";
     public static final String BATTERY_IMG = "BATTERY_IMG";
 }

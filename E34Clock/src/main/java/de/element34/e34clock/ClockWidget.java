@@ -42,38 +42,32 @@ public class ClockWidget extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "Received intent " + intent);
-        super.onReceive(context, intent);
         String intentAction = intent.getAction();
-        if (Intent.ACTION_DATE_CHANGED.equals(intentAction) ||
-                Intent.ACTION_TIMEZONE_CHANGED.equals(intentAction) ||
-                Intent.ACTION_TIME_CHANGED.equals(intentAction) ||
-                "android.intent.action.ALARM_CHANGED".equals(intentAction)) {
-            final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
-        } else if (Constants.BATTERY_ACTION.equals(intentAction)) {
+        if (Constants.ACTION_CLOCK_CHANGED.equals(intentAction)) {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
         } else if (Intent.ACTION_SCREEN_OFF.equals(intentAction)) {
-            context.stopService(new Intent(context, BatteryService.class));
+            context.stopService(new Intent(context, ClockService.class));
         } else if (Intent.ACTION_SCREEN_ON.equals(intentAction)) {
-            context.startService(new Intent(context, BatteryService.class));
+            context.startService(new Intent(context, ClockService.class));
         }
+        super.onReceive(context, intent);
     }
 
     @Override
     public void onEnabled(Context context) {
         super.onEnabled(context);
         Log.d(TAG, "ClockWidget created!");
-        Intent service = new Intent(context, BatteryService.class);
-        context.startService(service);
+        final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
+        context.startService(new Intent(context, ClockService.class));
     }
 
     @Override
     public void onDisabled(Context context) {
         super.onDisabled(context);
         Log.d(TAG, "ClockWidget completely removed!");
-        Intent service = new Intent(context, BatteryService.class);
-        context.stopService(service);
+        context.stopService(new Intent(context, ClockService.class));
     }
 
     @Override
@@ -91,7 +85,7 @@ public class ClockWidget extends AppWidgetProvider {
 
     private void updateViews(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        Intent intent = new Intent(Constants.BATTERY_ACTION);
+        Intent intent = new Intent(Constants.ACTION_CLOCK_CHANGED);
         intent.putExtra(BATTERY_LEVEL, batteryInfo.getBatteryLevel(batteryStatus));
         intent.putExtra(BATTERY_IMG, batteryInfo.getBatteryImg(batteryStatus));
         updateViews(intent, context, appWidgetManager, appWidgetIds);
@@ -145,9 +139,9 @@ public class ClockWidget extends AppWidgetProvider {
     }
 
     private void setAlarmText(Context context, RemoteViews views) {
-        String nextAlarm = alarmInfo.extractAlarmText(Settings.System.getString(context.getContentResolver(),
-                Settings.System.NEXT_ALARM_FORMATTED));
-        if ("".equals(nextAlarm)) {
+        String nextAlarm = Settings.System.getString(context.getContentResolver(),
+                Settings.System.NEXT_ALARM_FORMATTED);
+        if (nextAlarm == null || "".equals(nextAlarm)) {
             Log.d(TAG, "Hiding alarm bell!");
             views.setViewVisibility(R.id.alarm, View.INVISIBLE);
         } else {
