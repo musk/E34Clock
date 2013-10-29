@@ -36,6 +36,7 @@
         android:layout_height="@dimen/battery_height"
         android:layout_alignLeft="@+id/network"
         android:layout_below="@+id/network"
+        android:layout_marginTop="2dp"
         android:src="@drawable/battery_load" />
 
     <TextView
@@ -44,6 +45,7 @@
         android:layout_height="@dimen/battery_height"
         android:layout_alignLeft="@+id/network"
         android:layout_below="@+id/network"
+        android:layout_marginTop="2dp"
         android:gravity="right"
         android:paddingRight="@dimen/battery_txt_padding_right"
         android:paddingTop="@dimen/battery_txt_padding_top"
@@ -61,8 +63,25 @@
         android:layout_height="@dimen/battery_height"
         android:layout_alignLeft="@+id/battery"
         android:layout_below="@+id/battery"
+        android:layout_marginTop="2dp"
         android:gravity="center"
         android:src="@drawable/alarm_bell" />
+
+    <TextView
+        android:id="@+id/alarm_day_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/alarm_height"
+        android:layout_alignLeft="@+id/battery"
+        android:layout_below="@+id/battery"
+        android:layout_marginTop="2dp"
+        android:gravity="top"
+        android:alpha="1.0"
+        android:text=""
+        android:textSize="@dimen/alarm_txt_size"
+        android:textAlignment="center"
+        android:textColor="@color/alarm"
+        android:typeface="normal"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/alarm_txt"
@@ -70,9 +89,10 @@
         android:layout_height="@dimen/alarm_height"
         android:layout_alignLeft="@+id/battery"
         android:layout_below="@+id/battery"
-        android:gravity="center"
+        android:layout_marginTop="2dp"
+        android:gravity="bottom"
         android:alpha="1.0"
-        android:text="@string/alarm_txt"
+        android:text=""
         android:textSize="@dimen/alarm_txt_size"
         android:textAlignment="center"
         android:textColor="@color/alarm"
@@ -94,10 +114,10 @@
         android:layout_height="@dimen/analogclock_layout_height"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/network"
+        android:layout_marginLeft="2dp"
         android:dial="@drawable/dial"
         android:hand_hour="@drawable/hour_hand"
-        android:hand_minute="@drawable/minute_hand"
-        android:paddingLeft="1dp" />
+        android:hand_minute="@drawable/minute_hand" />
 
     <!-- Weather preview icons bottom -->
     <TextView

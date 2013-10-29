@@ -17,6 +17,7 @@
 package de.element34.e34clock;
 
 import android.annotation.TargetApi;
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
@@ -30,6 +31,8 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import java.util.List;
 
 import static de.element34.e34clock.Constants.BATTERY_IMG;
 import static de.element34.e34clock.Constants.BATTERY_LEVEL;
@@ -47,8 +50,10 @@ public class ClockWidget extends AppWidgetProvider {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
         } else if (Intent.ACTION_SCREEN_OFF.equals(intentAction)) {
+            Log.d(TAG, "Stoping service!");
             context.stopService(new Intent(context, ClockService.class));
         } else if (Intent.ACTION_SCREEN_ON.equals(intentAction)) {
+            Log.d(TAG, "Start service!");
             context.startService(new Intent(context, ClockService.class));
         }
         super.onReceive(context, intent);
@@ -56,23 +61,20 @@ public class ClockWidget extends AppWidgetProvider {
 
     @Override
     public void onEnabled(Context context) {
-        super.onEnabled(context);
         Log.d(TAG, "ClockWidget created!");
+        context.startService(new Intent(context, ClockService.class));
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
-        context.startService(new Intent(context, ClockService.class));
     }
 
     @Override
     public void onDisabled(Context context) {
-        super.onDisabled(context);
         Log.d(TAG, "ClockWidget completely removed!");
         context.stopService(new Intent(context, ClockService.class));
     }
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {
-        super.onDeleted(context, appWidgetIds);
         Log.d(TAG, "Deleting an instance of widget!");
     }
 
@@ -80,7 +82,6 @@ public class ClockWidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Log.d(TAG, "Updating widget!");
         updateViews(context, appWidgetManager, appWidgetIds);
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     private void updateViews(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -93,6 +94,12 @@ public class ClockWidget extends AppWidgetProvider {
 
     private void updateViews(Intent intent, Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
+        views.setOnClickPendingIntent(R.id.network,
+                PendingIntent.getActivity(context, 0,
+                        new Intent(Settings.ACTION_WIFI_SETTINGS), 0));
+        views.setOnClickPendingIntent(R.id.battery,
+                PendingIntent.getActivity(context, 0,
+                        new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
         setBatteryStatus(views, intent);
         setAlarmText(context, views);
         setDate(context, views);
@@ -139,16 +146,26 @@ public class ClockWidget extends AppWidgetProvider {
     }
 
     private void setAlarmText(Context context, RemoteViews views) {
-        String nextAlarm = Settings.System.getString(context.getContentResolver(),
-                Settings.System.NEXT_ALARM_FORMATTED);
-        if (nextAlarm == null || "".equals(nextAlarm)) {
+        List<String> nextAlarm = alarmInfo.extractAlarmText(Settings.System.getString(context.getContentResolver(),
+                Settings.System.NEXT_ALARM_FORMATTED));
+        Log.d(TAG, "Retrieved alarm [" + nextAlarm + "]!");
+        if (nextAlarm.isEmpty()) {
             Log.d(TAG, "Hiding alarm bell!");
             views.setViewVisibility(R.id.alarm, View.INVISIBLE);
         } else {
             Log.d(TAG, "Showing alarm bell!");
             views.setViewVisibility(R.id.alarm, View.VISIBLE);
+            views.setTextViewText(R.id.alarm_day_txt, nextAlarm.get(0));
+            Log.d(TAG, "Setting alarm day to " + nextAlarm.get(0));
+            if (nextAlarm.size() > 1) {
+                if (nextAlarm.size() > 2) {
+                    views.setTextViewText(R.id.alarm_txt, nextAlarm.get(1) + " " + nextAlarm.get(2));
+                    Log.d(TAG, "Setting alarm time to " + nextAlarm.get(1) + " " + nextAlarm.get(2));
+                } else {
+                    views.setTextViewText(R.id.alarm_txt, nextAlarm.get(1));
+                    Log.d(TAG, "Setting alarm time to " + nextAlarm.get(1));
+                }
+            }
         }
-        Log.d(TAG, "Setting alarm time to " + nextAlarm);
-        views.setTextViewText(R.id.alarm_txt, nextAlarm);
     }
 }
