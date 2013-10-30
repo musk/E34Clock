@@ -72,10 +72,12 @@ public class ClockService extends Service {
     }
 
     private void broadcastBatteryStatus(Intent batteryChanged) {
-        Intent batteryIntent = new Intent(Constants.ACTION_CLOCK_CHANGED);
-        batteryIntent.putExtra(Constants.BATTERY_LEVEL, info.getBatteryLevel(batteryChanged));
-        batteryIntent.putExtra(Constants.BATTERY_IMG, info.getBatteryImg(batteryChanged));
-        Log.d(TAG, "Broadcasting intent " + batteryIntent);
+        final String batteryLevel = info.getBatteryLevel(batteryChanged);
+        final int batteryImg = info.getBatteryImg(batteryChanged);
+        final Intent batteryIntent = new Intent(Constants.ACTION_CLOCK_CHANGED);
+        batteryIntent.putExtra(Constants.BATTERY_LEVEL, batteryLevel);
+        batteryIntent.putExtra(Constants.BATTERY_IMG, batteryImg);
+        Log.d(TAG, "Broadcasting intent " + batteryIntent + "(level=" + batteryLevel + ", img=" + batteryImg + ")");
         sendBroadcast(batteryIntent);
     }
 }
