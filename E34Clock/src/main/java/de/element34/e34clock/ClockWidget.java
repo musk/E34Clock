@@ -43,6 +43,25 @@ public class ClockWidget extends AppWidgetProvider {
     private AlarmInfo alarmInfo = new AlarmInfo();
 
     @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        Log.d(TAG, "Deleting an instance of widget!");
+    }
+
+    @Override
+    public void onDisabled(Context context) {
+        Log.d(TAG, "ClockWidget removed from all screens!");
+        stopClockService(context);
+    }
+
+    @Override
+    public void onEnabled(Context context) {
+        Log.d(TAG, "ClockWidget created!");
+        startClockService(context);
+        final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
+    }
+
+    @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "Received intent " + intent);
         String intentAction = intent.getAction();
@@ -57,101 +76,11 @@ public class ClockWidget extends AppWidgetProvider {
         super.onReceive(context, intent);
     }
 
-    private void stopClockService(Context context) {
-        Log.d(TAG, "Stopping service!");
-        context.stopService(new Intent(context, ClockService.class));
-    }
-
-    private void startClockService(Context context) {
-        Log.d(TAG, "Start service!");
-        context.startService(new Intent(context, ClockService.class));
-    }
-
-    @Override
-    public void onEnabled(Context context) {
-        Log.d(TAG, "ClockWidget created!");
-        startClockService(context);
-        final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-        Log.d(TAG, "ClockWidget removed from all screens!");
-        stopClockService(context);
-    }
-
-    @Override
-    public void onDeleted(Context context, int[] appWidgetIds) {
-        Log.d(TAG, "Deleting an instance of widget!");
-    }
-
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Log.d(TAG, "Updating widget!");
         startClockService(context);
         updateViews(context, appWidgetManager, appWidgetIds);
-    }
-
-    private void updateViews(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        final Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        Intent intent = new Intent(Constants.ACTION_CLOCK_CHANGED);
-        intent.putExtra(BATTERY_LEVEL, batteryInfo.getBatteryLevel(batteryStatus));
-        intent.putExtra(BATTERY_IMG, batteryInfo.getBatteryImg(batteryStatus));
-        updateViews(intent, context, appWidgetManager, appWidgetIds);
-    }
-
-    private void updateViews(Intent intent, Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
-        views.setOnClickPendingIntent(R.id.network,
-                PendingIntent.getActivity(context, 0,
-                        new Intent(Settings.ACTION_WIFI_SETTINGS), 0));
-        views.setOnClickPendingIntent(R.id.battery,
-                PendingIntent.getActivity(context, 0,
-                        new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
-        setBatteryStatus(views, intent);
-        setAlarmText(context, views);
-        setDate(context, views);
-        appWidgetManager.updateAppWidget(appWidgetIds, views);
-    }
-
-    private void setDate(Context context, RemoteViews views) {
-        final Time dateTime = new Time();
-        dateTime.setToNow();
-        final Resources resources = context.getResources();
-        int leftPadding = resources.getDimensionPixelSize(R.dimen.date_padding_left);
-        int weekdayPx = resources.getDimensionPixelSize(R.dimen.weekday_height);
-        int paddingDate = resources.getDimensionPixelSize(R.dimen.date_padding_top);
-        int topPadding = dateTime.weekDay * weekdayPx + paddingDate;
-        String date = dateTime.format("%d.%m.%Y");
-        Log.d(TAG, "Setting date to " + date + " for weekday " + dateTime.weekDay + ", left=" + leftPadding + ", top=" + topPadding);
-        views.setTextViewText(R.id.date, date);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            setPadding(leftPadding, topPadding, views);
-            Log.d(TAG, "Using setPadding");
-        } else {
-            setPaddingIceCreamSandwich(leftPadding, topPadding, views);
-            Log.d(TAG, "Using setPaddingIceCreamSandwich");
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    private void setPaddingIceCreamSandwich(int leftPadding, int topPadding, RemoteViews views) {
-        views.setInt(R.id.date, "setPaddingLeft", leftPadding);
-        views.setInt(R.id.date, "setPaddingTop", topPadding);
-    }
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void setPadding(int leftPadding, int topPadding, RemoteViews views) {
-        views.setViewPadding(R.id.date, leftPadding, topPadding, 0, 0);
-    }
-
-    private void setBatteryStatus(RemoteViews views, Intent intent) {
-        String batteryLevel = intent.getStringExtra(BATTERY_LEVEL);
-        int batteryImgId = intent.getIntExtra(BATTERY_IMG, R.drawable.battery);
-        Log.d(TAG, "Updating battery status: level=" + batteryLevel + ", image id=" + batteryImgId);
-        views.setImageViewResource(R.id.battery, batteryImgId);
-        views.setTextViewText(R.id.battery_txt, batteryLevel);
     }
 
     private void setAlarmText(Context context, RemoteViews views) {
@@ -176,5 +105,76 @@ public class ClockWidget extends AppWidgetProvider {
                 }
             }
         }
+    }
+
+    private void setBatteryStatus(RemoteViews views, Intent intent) {
+        String batteryLevel = intent.getStringExtra(BATTERY_LEVEL);
+        int batteryImgId = intent.getIntExtra(BATTERY_IMG, R.drawable.battery);
+        Log.d(TAG, "Updating battery status: level=" + batteryLevel + ", image id=" + batteryImgId);
+        views.setImageViewResource(R.id.battery, batteryImgId);
+        views.setTextViewText(R.id.battery_txt, batteryLevel);
+    }
+
+    private void setDate(Context context, RemoteViews views) {
+        final Time dateTime = new Time();
+        dateTime.setToNow();
+        final Resources resources = context.getResources();
+        int leftPadding = resources.getDimensionPixelSize(R.dimen.date_padding_left);
+        int weekdayPx = resources.getDimensionPixelSize(R.dimen.weekday_height);
+        int paddingDate = resources.getDimensionPixelSize(R.dimen.date_padding_top);
+        int topPadding = dateTime.weekDay * weekdayPx + paddingDate;
+        String date = dateTime.format("%d.%m.%Y");
+        Log.d(TAG, "Setting date to " + date + " for weekday " + dateTime.weekDay + ", left=" + leftPadding + ", top=" + topPadding);
+        views.setTextViewText(R.id.date, date);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            setPadding(leftPadding, topPadding, views);
+            Log.d(TAG, "Using setPadding");
+        } else {
+            setPaddingIceCreamSandwich(leftPadding, topPadding, views);
+            Log.d(TAG, "Using setPaddingIceCreamSandwich");
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void setPadding(int leftPadding, int topPadding, RemoteViews views) {
+        views.setViewPadding(R.id.date, leftPadding, topPadding, 0, 0);
+    }
+
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    private void setPaddingIceCreamSandwich(int leftPadding, int topPadding, RemoteViews views) {
+        views.setInt(R.id.date, "setPaddingLeft", leftPadding);
+        views.setInt(R.id.date, "setPaddingTop", topPadding);
+    }
+
+    private void startClockService(Context context) {
+        Log.d(TAG, "Start service!");
+        context.startService(new Intent(context, ClockService.class));
+    }
+
+    private void stopClockService(Context context) {
+        Log.d(TAG, "Stopping service!");
+        context.stopService(new Intent(context, ClockService.class));
+    }
+
+    private void updateViews(Intent intent, Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
+        views.setOnClickPendingIntent(R.id.network,
+                PendingIntent.getActivity(context, 0,
+                        new Intent(Settings.ACTION_WIFI_SETTINGS), 0));
+        views.setOnClickPendingIntent(R.id.battery,
+                PendingIntent.getActivity(context, 0,
+                        new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
+        setBatteryStatus(views, intent);
+        setAlarmText(context, views);
+        setDate(context, views);
+        appWidgetManager.updateAppWidget(appWidgetIds, views);
+    }
+
+    private void updateViews(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        final Intent batteryStatus = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        Intent intent = new Intent(Constants.ACTION_CLOCK_CHANGED);
+        intent.putExtra(BATTERY_LEVEL, batteryInfo.getBatteryLevel(batteryStatus));
+        intent.putExtra(BATTERY_IMG, batteryInfo.getBatteryImg(batteryStatus));
+        updateViews(intent, context, appWidgetManager, appWidgetIds);
     }
 }

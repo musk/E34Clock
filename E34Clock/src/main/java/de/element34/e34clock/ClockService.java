@@ -27,6 +27,7 @@ import android.util.Log;
 public class ClockService extends Service {
     private static final String TAG = "e34clock.ClockService";
     private BroadcastReceiver batteryReceiver;
+    private BatteryInfo info = new BatteryInfo();
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -59,15 +60,15 @@ public class ClockService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "Received onStartCommand(intent=[" + intent + "],flags=[" + flags + "], startId=[" + startId + "]");
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Override
     public void onDestroy() {
         Log.d(TAG, "Destroying battery service!");
         unregisterReceiver(batteryReceiver);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "Received onStartCommand(intent=[" + intent + "],flags=[" + flags + "], startId=[" + startId + "]");
+        return super.onStartCommand(intent, flags, startId);
     }
 
     private void broadcastBatteryStatus(Intent batteryChanged) {
@@ -77,6 +78,4 @@ public class ClockService extends Service {
         Log.d(TAG, "Broadcasting intent " + batteryIntent);
         sendBroadcast(batteryIntent);
     }
-
-    private BatteryInfo info = new BatteryInfo();
 }
