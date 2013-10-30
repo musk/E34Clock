@@ -50,27 +50,35 @@ public class ClockWidget extends AppWidgetProvider {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
         } else if (Intent.ACTION_SCREEN_OFF.equals(intentAction)) {
-            Log.d(TAG, "Stoping service!");
-            context.stopService(new Intent(context, ClockService.class));
+            stopClockService(context);
         } else if (Intent.ACTION_SCREEN_ON.equals(intentAction)) {
-            Log.d(TAG, "Start service!");
-            context.startService(new Intent(context, ClockService.class));
+            startClockService(context);
         }
         super.onReceive(context, intent);
+    }
+
+    private void stopClockService(Context context) {
+        Log.d(TAG, "Stopping service!");
+        context.stopService(new Intent(context, ClockService.class));
+    }
+
+    private void startClockService(Context context) {
+        Log.d(TAG, "Start service!");
+        context.startService(new Intent(context, ClockService.class));
     }
 
     @Override
     public void onEnabled(Context context) {
         Log.d(TAG, "ClockWidget created!");
-        context.startService(new Intent(context, ClockService.class));
+        startClockService(context);
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
     }
 
     @Override
     public void onDisabled(Context context) {
-        Log.d(TAG, "ClockWidget completely removed!");
-        context.stopService(new Intent(context, ClockService.class));
+        Log.d(TAG, "ClockWidget removed from all screens!");
+        stopClockService(context);
     }
 
     @Override
@@ -81,6 +89,7 @@ public class ClockWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Log.d(TAG, "Updating widget!");
+        startClockService(context);
         updateViews(context, appWidgetManager, appWidgetIds);
     }
 

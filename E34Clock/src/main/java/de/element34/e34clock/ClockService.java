@@ -59,6 +59,12 @@ public class ClockService extends Service {
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "Received onStartCommand(intent=[" + intent + "],flags=[" + flags + "], startId=[" + startId + "]");
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
     public void onDestroy() {
         Log.d(TAG, "Destroying battery service!");
         unregisterReceiver(batteryReceiver);
