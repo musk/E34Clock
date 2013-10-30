@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Build;
+import android.provider.AlarmClock;
 import android.provider.Settings;
 import android.text.format.Time;
 import android.util.Log;
@@ -164,6 +165,9 @@ public class ClockWidget extends AppWidgetProvider {
         views.setOnClickPendingIntent(R.id.battery,
                 PendingIntent.getActivity(context, 0,
                         new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
+        views.setOnClickPendingIntent(R.id.alarm,
+                PendingIntent.getActivity(context, 0,
+                        new Intent(AlarmClock.ACTION_SET_ALARM), 0));
         setBatteryStatus(views, intent);
         setAlarmText(context, views);
         setDate(context, views);
