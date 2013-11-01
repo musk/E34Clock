@@ -17,7 +17,6 @@
 <resources>
 
     <string name="app_name">E34Clock</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="pref_sh_title">Show Highlights</string>
     <string name="pref_sh_summary">Show highlights summary</string>
