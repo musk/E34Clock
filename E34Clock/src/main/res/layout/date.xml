@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ (c) Copyright 2013 Stefan Langer
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <!-- Weekday display -->
+    <TextView
+        android:id="@+id/sunday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/sunday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:textAlignment="viewStart"
+        android:typeface="normal"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/monday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_below="@+id/sunday"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/monday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:textAlignment="viewStart"
+        android:typeface="normal"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/tuesday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_below="@+id/monday"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/tuesday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:textAlignment="viewStart"
+        android:typeface="normal"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/wednesday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_below="@+id/tuesday"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/wednesday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:textAlignment="viewStart"
+        android:typeface="normal"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/thursday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_below="@+id/wednesday"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/thursday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:textAlignment="viewStart"
+        android:typeface="normal"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/friday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_below="@+id/thursday"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/friday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:textAlignment="viewStart"
+        android:typeface="normal"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:id="@+id/saturday"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="@dimen/solo_weekday_height"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left|center_vertical"
+        android:alpha="0.45"
+        android:paddingLeft="@dimen/solo_weekday_padding_left"
+        android:text="@string/saturday"
+        android:textColor="@color/weekday"
+        android:textSize="@dimen/solo_weekday_txt_size"
+        android:layout_below="@+id/friday"
+        android:textAlignment="viewStart"
+        android:textStyle="normal"
+        android:typeface="normal"/>
+
+    <!-- Date on current weekday -->
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="@dimen/solo_weekday_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/solo_weekday_margin_left"
+        android:layout_toRightOf="@+id/weather"
+        android:gravity="left"
+        android:alpha="1.0"
+        android:paddingLeft="@dimen/solo_date_padding_left"
+        android:paddingTop="@dimen/solo_date_padding_top"
+        android:text="@string/date_txt"
+        android:textColor="@color/date"
+        android:textSize="@dimen/solo_date_txt_size"
+        android:textAlignment="viewStart"
+        android:textStyle="normal"
+        android:typeface="normal"/>
+</RelativeLayout>

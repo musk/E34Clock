@@ -32,23 +32,23 @@ public class AlarmInfo {
         List<String> nextAlarm = new ArrayList<String>();
         if (matcher.find()) {
             String weekDay = matcher.group(1);
-            Log.d(TAG, "Found weekday " + weekDay);
+            Log.v(TAG, "Found weekday " + weekDay);
             nextAlarm.add(weekDay);
             String timeStr = matcher.group(2);
-            Log.d(TAG, "Found time " + timeStr);
+            Log.v(TAG, "Found time " + timeStr);
             nextAlarm.add(timeStr);
             if (matcher.find(2)) {
                 String amPm = matcher.group(3);
                 if (amPm != null && !"".equals(amPm.trim())) {
-                    Log.d(TAG, "Found time extension " + amPm);
+                    Log.v(TAG, "Found time extension " + amPm);
                     nextAlarm.add(amPm);
                 }
             }
         } else {
             nextAlarm.add(sysAlarm);
-            Log.d(TAG, "Pattern " + pattern + " did not match!");
+            Log.v(TAG, "Pattern " + pattern + " did not match!");
         }
-        Log.d(TAG, "Extracted text " + nextAlarm + " from " + sysAlarm);
+        Log.v(TAG, "Extracted text " + nextAlarm + " from " + sysAlarm);
         return nextAlarm;
     }
 }

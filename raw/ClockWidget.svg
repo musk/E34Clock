@@ -1672,10 +1672,10 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.82210058"
-     inkscape:cx="1775.2532"
+     inkscape:cx="1472.3706"
      inkscape:cy="619.95284"
      inkscape:document-units="px"
-     inkscape:current-layer="g6857"
+     inkscape:current-layer="layer11"
      showgrid="false"
      inkscape:window-width="1868"
      inkscape:window-height="1056"
@@ -1790,7 +1790,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     style="display:none"
+     style="display:inline"
      inkscape:label="Background"
      id="g18186"
      inkscape:groupmode="layer"
@@ -1810,8 +1810,7 @@
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="Dimension"
-     style="display:none"
-     sodipodi:insensitive="true">
+     style="display:none">
     <rect
        style="fill:#000000;fill-opacity:0.54901961;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.93001777;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect8629"
@@ -1819,16 +1818,6 @@
        height="431.39636"
        x="1396.2495"
        y="171.12573" />
-    <rect
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="D:\project\E34ClockProject\E34Clock\src\main\res\drawable-mdpi\rain_weather_now.png"
-       y="172.73071"
-       x="1484.6257"
-       height="353.02762"
-       width="424.31863"
-       id="rect4817"
-       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.71784985;stroke-opacity:1;display:inline" />
     <rect
        y="525.77765"
        x="1824.9973"
@@ -1894,7 +1883,7 @@
        height="355.14648"
        x="1911.6627"
        y="170.49283"
-       inkscape:export-filename="D:\project\E34ClockProject\E34Clock\src\main\res\drawable-mdpi\rain_weather_now.png"
+       inkscape:export-filename="/home/slanger/projects/E34Clock/E34Clock/src/main/res/drawable-xhdpi/ic_launcher_date.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <rect
@@ -1907,6 +1896,16 @@
        height="91.800003"
        x="1395.7845"
        y="266.15106" />
+    <rect
+       inkscape:export-ydpi="40.655834"
+       inkscape:export-xdpi="40.655834"
+       inkscape:export-filename="/home/slanger/projects/E34Clock/E34Clock/src/main/res/drawable-mdpi/ic_launcher_solo.png"
+       y="172.73071"
+       x="1484.6257"
+       height="353.02762"
+       width="424.31863"
+       id="rect4817"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.71784985;stroke-opacity:1;display:inline" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -8405,7 +8404,7 @@
        style="fill:none;stroke:#ffffff;stroke-width:2.72766137;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.5098038;stroke-dasharray:none" />
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="Alarm Clock"
      id="g6828"
      inkscape:groupmode="layer"
@@ -8416,7 +8415,7 @@
        transform="matrix(0.68475759,0,0,0.68475759,453.45557,127.85321)">
       <path
          transform="matrix(0.8512532,0,0,0.8512532,385.03948,117.11398)"
-         d="m 1266.639,337.7041 c 0,16.10999 -13.0598,29.16972 -29.1698,29.16972 -16.11,0 -29.1697,-13.05973 -29.1697,-29.16972 0,-16.10999 13.0597,-29.16972 29.1697,-29.16972 16.11,0 29.1698,13.05973 29.1698,29.16972 z"
+         d="m 1266.639,337.7041 a 29.169718,29.169718 0 1 1 -58.3395,0 29.169718,29.169718 0 1 1 58.3395,0 z"
          sodipodi:ry="29.169718"
          sodipodi:rx="29.169718"
          sodipodi:cy="337.7041"
@@ -8429,7 +8428,7 @@
          sodipodi:open="true"
          sodipodi:end="6.2118166"
          sodipodi:start="3.2598602"
-         d="m 1135.5124,397.65362 c 1.2794,-10.76752 11.0453,-18.45914 21.8129,-17.17972 9.3504,1.11104 16.5954,8.70405 17.2669,18.09629"
+         d="m 1135.5124,397.65362 a 19.633465,19.633465 0 0 1 39.0798,0.91657"
          sodipodi:ry="19.633465"
          sodipodi:rx="19.633465"
          sodipodi:cy="399.97021"
@@ -8445,7 +8444,7 @@
          sodipodi:cy="399.97021"
          sodipodi:rx="19.633465"
          sodipodi:ry="19.633465"
-         d="m 1135.5124,397.65362 c 1.2794,-10.76752 11.0453,-18.45914 21.8129,-17.17972 9.3504,1.11104 16.5954,8.70405 17.2669,18.09629"
+         d="m 1135.5124,397.65362 a 19.633465,19.633465 0 0 1 39.0798,0.91657"
          sodipodi:start="3.2598602"
          sodipodi:end="6.2118166"
          sodipodi:open="true"
@@ -8472,7 +8471,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Alarm Text"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <text
        xml:space="preserve"
@@ -8661,7 +8660,7 @@
      inkscape:groupmode="layer"
      id="layer21"
      inkscape:label="WLAN"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <g
        id="g7901"
@@ -8684,7 +8683,7 @@
          inkscape:connector-curvature="0" />
       <path
          transform="matrix(0.82686649,0,0,0.82686649,301.90707,376.71096)"
-         d="m 1391.278,-55.221607 c 0,9.266592 -7.512,16.77865 -16.7786,16.77865 -9.2666,0 -16.7787,-7.512058 -16.7787,-16.77865 0,-9.266593 7.5121,-16.77865 16.7787,-16.77865 9.2666,0 16.7786,7.512057 16.7786,16.77865 z"
+         d="m 1391.278,-55.221607 a 16.77865,16.77865 0 1 1 -33.5573,0 16.77865,16.77865 0 1 1 33.5573,0 z"
          sodipodi:ry="16.77865"
          sodipodi:rx="16.77865"
          sodipodi:cy="-55.221607"
@@ -12115,7 +12114,7 @@
      inkscape:groupmode="layer"
      id="layer10"
      inkscape:label="Cloud"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -12139,7 +12138,7 @@
      inkscape:groupmode="layer"
      id="layer17"
      inkscape:label="Moon-Cloud"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:6;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
@@ -12284,7 +12283,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Snow"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <rect
        inkscape:export-ydpi="90"
@@ -12398,7 +12397,7 @@
          id="g4616">
         <path
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)"
-           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
+           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
            sodipodi:ry="92"
            sodipodi:rx="92"
            sodipodi:cy="1262.3622"
@@ -12449,7 +12448,7 @@
          id="g4640">
         <path
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)"
-           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
+           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
            sodipodi:ry="92"
            sodipodi:rx="92"
            sodipodi:cy="1262.3622"
@@ -12587,7 +12586,7 @@
            sodipodi:cy="1262.3622"
            sodipodi:rx="92"
            sodipodi:ry="92"
-           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
+           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)" />
         <rect
            style="opacity:0.5;fill:url(#linearGradient4628);fill-opacity:1;stroke:none;filter:url(#filter5849-2-1-5-7)"
@@ -12638,7 +12637,7 @@
            sodipodi:cy="1262.3622"
            sodipodi:rx="92"
            sodipodi:ry="92"
-           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
+           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)" />
         <rect
            style="opacity:0.5;fill:url(#linearGradient4652);fill-opacity:1;stroke:none;filter:url(#filter5849-2-1-5-7)"
@@ -12763,7 +12762,7 @@
            sodipodi:cy="1262.3622"
            sodipodi:rx="92"
            sodipodi:ry="92"
-           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
+           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)" />
         <rect
            style="opacity:0.5;fill:url(#linearGradient4628);fill-opacity:1;stroke:none;filter:url(#filter5849-2-1-5-7)"
@@ -12814,7 +12813,7 @@
            sodipodi:cy="1262.3622"
            sodipodi:rx="92"
            sodipodi:ry="92"
-           d="m 2296,1262.3622 a 92,92 0 1 1 -184,0 92,92 0 1 1 184,0 z"
+           d="m 2296,1262.3622 c 0,50.8102 -41.1898,92 -92,92 -50.8102,0 -92,-41.1898 -92,-92 0,-50.8102 41.1898,-92 92,-92 50.8102,0 92,41.1898 92,92 z"
            transform="matrix(0.39130435,0,0,0.39130435,1395.6556,865.41923)" />
         <rect
            style="opacity:0.5;fill:url(#linearGradient4652);fill-opacity:1;stroke:none;filter:url(#filter5849-2-1-5-7)"

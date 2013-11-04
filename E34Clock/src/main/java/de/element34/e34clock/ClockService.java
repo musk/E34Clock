@@ -26,7 +26,7 @@ import android.util.Log;
 
 public class ClockService extends Service {
     private static final String TAG = "e34clock.ClockService";
-    private BroadcastReceiver batteryReceiver;
+    private BroadcastReceiver clockReceiver;
     private BatteryInfo info = new BatteryInfo();
 
     @Override
@@ -36,48 +36,70 @@ public class ClockService extends Service {
 
     @Override
     public void onCreate() {
-        Log.d(TAG, "Creating battery service!");
-        batteryReceiver = new BroadcastReceiver() {
+        Log.i(TAG, "Starting clock service!");
+        clockReceiver = new BroadcastReceiver() {
             @Override
-            public void onReceive(Context context, Intent intent) {
+            public void onReceive(final Context outerCtx, Intent intent) {
                 Log.d(TAG, "Received intent " + intent);
                 String intentAction = intent.getAction();
-                if (Intent.ACTION_BATTERY_CHANGED.equals(intentAction)) {
-                    broadcastBatteryStatus(intent);
+                if (Intent.ACTION_SCREEN_OFF.equals(intentAction)) {
+                    Log.v(TAG, "Screen off! Unregistering clock receiver.");
+                    BroadcastReceiver screenReceiver = new BroadcastReceiver() {
+                        @Override
+                        public void onReceive(final Context innerCtx, Intent intent) {
+                            if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
+                                Log.v(TAG, "Screen on! Registering clock receiver.");
+                                outerCtx.unregisterReceiver(this);
+                                Intent batteryChanged = registerServiceReceiver();
+                                broadcastStatus(batteryChanged);
+                            }
+                        }
+                    };
+                    outerCtx.registerReceiver(screenReceiver, new IntentFilter(Intent.ACTION_SCREEN_ON));
+                    outerCtx.unregisterReceiver(clockReceiver);
+                } else if (Intent.ACTION_BATTERY_CHANGED.equals(intentAction)) {
+                    broadcastStatus(intent);
+                } else {
+                    Intent batteryChanged = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                    broadcastStatus(batteryChanged);
                 }
-                Intent batteryChanged = registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-                broadcastBatteryStatus(batteryChanged);
             }
         };
 
+        Intent batteryChanged = registerServiceReceiver();
+        broadcastStatus(batteryChanged);
+    }
+
+    private Intent registerServiceReceiver() {
+        Log.d(TAG, "Registering service receiver!");
         final IntentFilter intentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         intentFilter.addAction(Intent.ACTION_DATE_CHANGED);
         intentFilter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
         intentFilter.addAction(Intent.ACTION_TIME_CHANGED);
         intentFilter.addAction("android.intent.action.ALARM_CHANGED");
-        Intent batteryChanged = registerReceiver(batteryReceiver, intentFilter);
-        broadcastBatteryStatus(batteryChanged);
+        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        return registerReceiver(clockReceiver, intentFilter);
     }
 
     @Override
     public void onDestroy() {
-        Log.d(TAG, "Destroying battery service!");
-        unregisterReceiver(batteryReceiver);
+        Log.i(TAG, "Stopping clock service!");
+        unregisterReceiver(clockReceiver);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "Received onStartCommand(intent=[" + intent + "],flags=[" + flags + "], startId=[" + startId + "]");
+        Log.v(TAG, "Received onStartCommand(intent=[" + intent + "],flags=[" + flags + "], startId=[" + startId + "]");
         return super.onStartCommand(intent, flags, startId);
     }
 
-    private void broadcastBatteryStatus(Intent batteryChanged) {
+    private void broadcastStatus(Intent batteryChanged) {
         final String batteryLevel = info.getBatteryLevel(batteryChanged);
         final int batteryImg = info.getBatteryImg(batteryChanged);
-        final Intent batteryIntent = new Intent(Constants.ACTION_CLOCK_CHANGED);
-        batteryIntent.putExtra(Constants.BATTERY_LEVEL, batteryLevel);
-        batteryIntent.putExtra(Constants.BATTERY_IMG, batteryImg);
-        Log.d(TAG, "Broadcasting intent " + batteryIntent + "(level=" + batteryLevel + ", img=" + batteryImg + ")");
-        sendBroadcast(batteryIntent);
+        final Intent statusIntent = new Intent(Constants.ACTION_CLOCK_CHANGED);
+        statusIntent.putExtra(Constants.BATTERY_LEVEL, batteryLevel);
+        statusIntent.putExtra(Constants.BATTERY_IMG, batteryImg);
+        Log.d(TAG, "Broadcasting intent " + statusIntent + "(level=" + batteryLevel + ", img=" + batteryImg + ")");
+        sendBroadcast(statusIntent);
     }
 }

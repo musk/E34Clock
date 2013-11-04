@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ (c) Copyright 2013 Stefan Langer
   ~
   ~    Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,8 +13,7 @@
   ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
-  -->
-
+ -->
 <resources>
 
     <string name="app_name">E34Clock</string>
@@ -21,7 +21,6 @@
     <string name="pref_sh_title">Show Highlights</string>
     <string name="pref_sh_summary">Show highlights summary</string>
     <string name="pref_time_title">Open Time Settings</string>
-    <string name="widget_label">E34ClockWidget</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
@@ -30,8 +29,11 @@
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
     <string name="location_txt">Markt Schwaben</string>
-    <string name="date_txt">20.10.2013</string>
-    <string name="battery_txt">100%</string>
-    <string name="alarm_txt">18:45</string>
+    <string name="date_txt">--.--.----</string>
+    <string name="battery_txt">---%</string>
+    <string name="alarm_txt">--:--</string>
+    <string name="widget_date_label">E34 Date</string>
+    <string name="widget_clock_label">E34 Clock</string>
+    <string name="widget_label">E34 Full Clock</string>
 
 </resources>

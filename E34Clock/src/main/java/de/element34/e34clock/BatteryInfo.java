@@ -30,7 +30,7 @@ public class BatteryInfo {
             int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 
             int extra = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, BatteryManager.BATTERY_STATUS_UNKNOWN);
-            Log.d(TAG, "Retrieved EXTRA_STATUS " + extra);
+            Log.v(TAG, "Retrieved EXTRA_STATUS " + extra);
             switch (extra) {
                 case BatteryManager.BATTERY_STATUS_CHARGING:
                 case BatteryManager.BATTERY_STATUS_DISCHARGING:
@@ -43,21 +43,21 @@ public class BatteryInfo {
                     Log.w(TAG, String.format("Unable to determine level of battery scale %d, level %d!", scale, level));
             }
         }
-        Log.d(TAG, "Battery status " + retVal + " determined!");
+        Log.v(TAG, "Battery status " + retVal + " determined!");
         return retVal;
     }
 
     public int getBatteryImg(Intent batteryStatus) {
         int extra = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-        Log.d(TAG, "Retrieved EXTRA_PLUGGED " + extra);
+        Log.v(TAG, "Retrieved EXTRA_PLUGGED " + extra);
         switch (extra) {
             case BatteryManager.BATTERY_PLUGGED_AC:
             case BatteryManager.BATTERY_PLUGGED_WIRELESS:
             case BatteryManager.BATTERY_PLUGGED_USB:
-                Log.d(TAG, "Using plugged battery image!");
+                Log.v(TAG, "Using plugged battery image!");
                 return R.drawable.battery_load;
             default:
-                Log.d(TAG, "Using battery image!");
+                Log.v(TAG, "Using battery image!");
                 return R.drawable.battery;
         }
     }
