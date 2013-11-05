@@ -18,7 +18,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
                     android:minHeight="240dp"
                     android:minWidth="200dp"
-                    android:previewImage="@drawable/ic_launcher_solo"
+                    android:previewImage="@drawable/clock_solo_launcher"
                     android:updatePeriodMillis="0"
                     android:initialLayout="@layout/clock"
                     android:widgetCategory="home_screen"/>

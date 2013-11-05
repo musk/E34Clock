@@ -18,7 +18,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
                     android:minHeight="120dp"
                     android:minWidth="90dp"
-                    android:previewImage="@drawable/ic_launcher_date"
+                    android:previewImage="@drawable/date_launcher"
                     android:updatePeriodMillis="0"
                     android:initialLayout="@layout/date"
                     android:widgetCategory="home_screen"/>

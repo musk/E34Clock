@@ -55,10 +55,10 @@
     <dimen name="battery_txt_size">8sp</dimen>
     <dimen name="alarm_txt_size">8sp</dimen>
     <!-- dimensino for solo clock widget -->
-    <dimen name="solo_weather_width">240dp</dimen>
-    <dimen name="solo_weather_height">199.745dp</dimen>
-    <dimen name="solo_clock_height">182.809dp</dimen>
-    <dimen name="solo_clock_width">182.809dp</dimen>
+    <dimen name="solo_weather_width">173.02dp</dimen>
+    <dimen name="solo_weather_height">144dp</dimen>
+    <dimen name="solo_clock_height">131.791dp</dimen>
+    <dimen name="solo_clock_width">131.791dp</dimen>
     <!-- dimensions for solo date picker -->
     <dimen name="solo_weekday_txt_size">16sp</dimen>
     <dimen name="solo_weekday_height">22dp</dimen>
@@ -68,10 +68,10 @@
     <dimen name="solo_date_txt_size">16sp</dimen>
     <dimen name="solo_date_padding_left">22dp</dimen>
     <dimen name="solo_date_padding_top">8dp</dimen>
-    <dimen name="solo_battery_width">42dp</dimen>
-    <dimen name="solo_battery_height">45dp</dimen>
-    <dimen name="solor_battery_txt_size">12sp</dimen>
-    <dimen name="solo_battery_txt_padding_top">10dp</dimen>
+    <dimen name="solo_battery_width">28dp</dimen>
+    <dimen name="solo_battery_height">30.13dp</dimen>
+    <dimen name="solor_battery_txt_size">9sp</dimen>
+    <dimen name="solo_battery_txt_padding_top">5dp</dimen>
     <dimen name="solo_battery_txt_padding_right">5dp</dimen>
-    <dimen name="solo_alarm_txt_size">12sp</dimen>
+    <dimen name="solo_alarm_txt_size">9sp</dimen>
 </resources>

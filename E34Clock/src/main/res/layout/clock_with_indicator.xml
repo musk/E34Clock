@@ -18,7 +18,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="@dimen/solo_weather_width"
-                android:layout_height="@dimen/solo_clock_height">
+                android:layout_height="@dimen/solo_weather_height">
 
     <!-- Alarm indicator -->
     <ImageView
@@ -106,7 +106,7 @@
         android:layout_height="@dimen/solo_weather_height"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/weather_now_rain"/>
+        android:src="@drawable/weather_now_sun_cloud"/>
 
     <AnalogClock
         android:id="@+id/analogClock"
@@ -116,7 +116,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="2dp"
         android:dial="@drawable/dial"
-        android:hand_hour="@drawable/hour_hand"
+        android:hand_hour="@drawable/hour_hand_2"
         android:hand_minute="@drawable/minute_hand"/>
 
 </RelativeLayout>
