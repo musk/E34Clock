@@ -20,6 +20,5 @@
                     android:minWidth="240dp"
                     android:previewImage="@drawable/ic_launcher"
                     android:updatePeriodMillis="0"
-    android:initialLayout="@layout/clock_rel_layout"
-    android:widgetCategory="home_screen|keyguard"
-    android:initialKeyguardLayout="@layout/clock_rel_layout" />
+                    android:initialLayout="@layout/clock_with_indicator"
+                    android:widgetCategory="home_screen"/>

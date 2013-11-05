@@ -62,11 +62,16 @@
     <!-- dimensions for solo date picker -->
     <dimen name="solo_weekday_txt_size">16sp</dimen>
     <dimen name="solo_weekday_height">22dp</dimen>
-    <!--86.612dp-->
     <dimen name="solo_weekday_width">90dp</dimen>
     <dimen name="solo_weekday_padding_left">2dp</dimen>
     <dimen name="solo_weekday_margin_left">2dp</dimen>
     <dimen name="solo_date_txt_size">16sp</dimen>
     <dimen name="solo_date_padding_left">22dp</dimen>
     <dimen name="solo_date_padding_top">8dp</dimen>
+    <dimen name="solo_battery_width">42dp</dimen>
+    <dimen name="solo_battery_height">45dp</dimen>
+    <dimen name="solor_battery_txt_size">12sp</dimen>
+    <dimen name="solo_battery_txt_padding_top">10dp</dimen>
+    <dimen name="solo_battery_txt_padding_right">5dp</dimen>
+    <dimen name="solo_alarm_txt_size">12sp</dimen>
 </resources>

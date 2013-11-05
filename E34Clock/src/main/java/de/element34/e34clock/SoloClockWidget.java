@@ -24,7 +24,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 public class SoloClockWidget extends AppWidgetProvider {
-    private static String TAG = "e34clock.ClockWidget";
+    private static String TAG = "e34clock.FullClockWidget";
 
     @Override
     public void onDeleted(Context context, int[] appWidgetIds) {

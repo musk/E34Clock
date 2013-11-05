@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ (c) Copyright 2013 Stefan Langer
   ~
@@ -13,7 +14,7 @@
   ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
- -->
+  -->
 <resources>
 
     <string name="app_name">E34Clock</string>
@@ -32,8 +33,9 @@
     <string name="date_txt">--.--.----</string>
     <string name="battery_txt">---%</string>
     <string name="alarm_txt">--:--</string>
-    <string name="widget_date_label">E34 Date</string>
-    <string name="widget_clock_label">E34 Clock</string>
-    <string name="widget_label">E34 Full Clock</string>
+    <string name="date_label">E34 Date</string>
+    <string name="clock_label">E34 Clock</string>
+    <string name="clock_only_label">E34 Only Clock</string>
+    <string name="clock_full_label">E34 Full Clock</string>
 
 </resources>

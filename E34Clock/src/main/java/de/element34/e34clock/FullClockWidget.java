@@ -23,6 +23,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.provider.AlarmClock;
 import android.provider.Settings;
 import android.util.Log;
@@ -34,7 +35,7 @@ import java.util.List;
 import static de.element34.e34clock.Constants.BATTERY_IMG;
 import static de.element34.e34clock.Constants.BATTERY_LEVEL;
 
-public class ClockWidget extends AppWidgetProvider {
+public class FullClockWidget extends AppWidgetProvider {
     private static final BatteryInfo batteryInfo = new BatteryInfo();
     private static final AlarmInfo alarmInfo = new AlarmInfo();
     private static final ClockUtil util = new ClockUtil();
@@ -56,7 +57,7 @@ public class ClockWidget extends AppWidgetProvider {
         Log.i(TAG, "Full clock widget created!");
         util.startClockService(context);
         final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
+        updateViews(context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, FullClockWidget.class)));
     }
 
     @Override
@@ -65,7 +66,7 @@ public class ClockWidget extends AppWidgetProvider {
         String intentAction = intent.getAction();
         if (Constants.ACTION_CLOCK_CHANGED.equals(intentAction)) {
             final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, ClockWidget.class)));
+            updateViews(intent, context, appWidgetManager, appWidgetManager.getAppWidgetIds(new ComponentName(context, FullClockWidget.class)));
         } else if (Constants.ACTION_SERVICE_RESTART.equals(intentAction)) {
             util.startClockService(context);
         } else
@@ -111,7 +112,7 @@ public class ClockWidget extends AppWidgetProvider {
     }
 
     private void updateViews(Intent intent, Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_with_indicator);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.clock_rel_layout);
         views.setOnClickPendingIntent(R.id.network,
                 PendingIntent.getActivity(context, 0,
                         new Intent(Settings.ACTION_WIFI_SETTINGS), 0));
@@ -123,6 +124,10 @@ public class ClockWidget extends AppWidgetProvider {
                         new Intent(AlarmClock.ACTION_SET_ALARM), 0));
         setBatteryStatus(views, intent);
         setAlarmText(context, views);
+        final Resources resources = context.getResources();
+        util.updateDate(views, resources.getDimensionPixelSize(R.dimen.date_padding_left),
+                resources.getDimensionPixelSize(R.dimen.date_padding_top),
+                resources.getDimensionPixelSize(R.dimen.weekday_height));
         appWidgetManager.updateAppWidget(appWidgetIds, views);
     }
 

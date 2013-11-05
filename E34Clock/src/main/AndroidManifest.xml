@@ -38,34 +38,8 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".ClockWidget"
-            android:label="@string/widget_label">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="de.element34.e34clock.action.ACTION_CLOCK_CHANGED" />
-                <action android:name="de.element34.e34clock.action.ACTION_SERVICE_RESTART"/>
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/e34clock_widgetprovider" />
-        </receiver>
-
-        <receiver
-            android:name="de.element34.e34clock.SoloClockWidget"
-            android:label="@string/widget_clock_label">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/e34clock_solo_provider"/>
-        </receiver>
-
-        <receiver
-            android:name="de.element34.e34clock.SoloDateWidget"
-            android:label="@string/widget_date_label">
+            android:name=".FullClockWidget"
+            android:label="@string/clock_full_label">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
                 <action android:name="de.element34.e34clock.action.ACTION_CLOCK_CHANGED"/>
@@ -74,11 +48,50 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/e34date_solo_provider"/>
+                android:resource="@xml/e34clock_full_provider"/>
+        </receiver>
+
+        <receiver
+            android:name=".ClockWidget"
+            android:label="@string/clock_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="de.element34.e34clock.action.ACTION_CLOCK_CHANGED" />
+                <action android:name="de.element34.e34clock.action.ACTION_SERVICE_RESTART"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/e34clock_provider"/>
+        </receiver>
+
+        <receiver
+            android:name="de.element34.e34clock.SoloClockWidget"
+            android:label="@string/clock_only_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/e34clock_only_provider"/>
+        </receiver>
+
+        <receiver
+            android:name="de.element34.e34clock.SoloDateWidget"
+            android:label="@string/date_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="de.element34.e34clock.action.ACTION_CLOCK_CHANGED"/>
+                <action android:name="de.element34.e34clock.action.ACTION_SERVICE_RESTART"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/e34date_provider"/>
         </receiver>
 
         <service android:name=".ClockService" />
-
 
     </application>
 
