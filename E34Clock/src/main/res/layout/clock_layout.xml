@@ -15,24 +15,27 @@
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
   -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/frame_layout_width"
-    android:layout_height="@dimen/frame_layout_height">
-
-    <ImageView
-        android:layout_width="@dimen/frame_layout_width"
-        android:layout_height="@dimen/frame_layout_height"
-        android:id="@+id/imageView"
-        android:layout_gravity="left|top"
-            android:src="@drawable/rain_weather_now"/>
+    <TextView
+        android:id="@+id/clockLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/clock_label" />
 
     <AnalogClock
+        android:id="@+id/analogClock"
         android:layout_width="@dimen/analogclock_layout_width"
         android:layout_height="@dimen/analogclock_layout_height"
-        android:id="@+id/analogClock"
-        android:layout_gravity="left|top"
-            android:hand_hour="@drawable/hour_hand"
-            android:hand_minute="@drawable/minute_hand"
-            android:dial="@drawable/dial"/>
-</FrameLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/clockLabel"
+        android:dial="@drawable/dial"
+        android:hand_hour="@drawable/hour_hand"
+        android:hand_minute="@drawable/minute_hand"
+        android:paddingLeft="1dp" />
+
+</RelativeLayout>

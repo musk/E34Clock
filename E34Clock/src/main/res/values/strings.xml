@@ -23,13 +23,7 @@
     <string name="pref_sh_summary">Show highlights summary</string>
     <string name="pref_time_title">Open Time Settings</string>
     <string name="widget_label">E34ClockWidget</string>
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
-    <string name="location_txt">Markt Schwaben</string>
+    <string name="clock_label">Current Time is:</string>
+
 
 </resources>
